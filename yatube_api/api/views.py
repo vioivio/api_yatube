@@ -11,8 +11,8 @@ class CommentViewSet(viewsets.ModelViewSet):
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
     permission_classes = [
-        IsOwnerOrReadOnly, # в задании указали, что API доступен только
-        IsAuthenticated]   # для аутентифицированных. иначе не проходит тесты
+        IsOwnerOrReadOnly,  # в задании указали, что API доступен только
+        IsAuthenticated]    # для аутентифицированных. иначе не проходит тесты
 
     def get_post(self):
         return get_object_or_404(Post, id=self.kwargs.get('post_id'))
